@@ -1,0 +1,78 @@
+#  Bài Tập Python: Phân Tích Dữ Liệu Bóng Đá
+
+##  Tổng Quan
+Dự án này bao gồm thu thập dữ liệu cầu thủ, phân tích thống kê, phân cụm người chơi và dự đoán giá trị chuyển nhượng bằng Python. Dữ liệu dựa trên mùa giải Premier League 2024–2025.
+
+---
+
+## I. Thu Thập Dữ Liệu từ FBref
+
+- Trích xuất từ https://fbref.com/en/.
+- Bao gồm các cầu thủ thi đấu hơn 90 phút.
+- Thu thập các chỉ số: Quốc tịch, Đội, Tuổi, Vị trí, Bàn thắng, Kiến tạo, xG, xAG, Chuyền bóng, Phòng ngự, v.v.
+- Dữ liệu thiếu được đánh dấu là "N/a".
+- Lưu tập dữ liệu cuối cùng vào `results.csv`.
+
+---
+
+## II.  Phân Tích Thống Kê
+
+### ✔ Top 3 Cầu Thủ
+- Xác định 3 cầu thủ cao nhất & thấp nhất cho mỗi chỉ số số học.
+- Lưu vào `top_3.txt`.
+
+### ✔ Thống Kê Tổng Hợp
+- Tính **Trung vị (Median)**, **Trung bình (Mean)** và **Độ lệch chuẩn (Std)** cho mỗi chỉ số:
+  - Tổng thể
+  - Theo từng đội bóng
+- Lưu vào `results2.csv`.
+
+### ✔ Biểu Đồ Histogram
+- Vẽ biểu đồ phân phối cho từng chỉ số.
+- Lưu trong thư mục `/histograms/`.
+
+### ✔ Đội Bóng Xuất Sắc Nhất
+- Xác định đội có trung bình cao nhất cho mỗi chỉ số.
+
+---
+
+## III.  Phân Cụm Cầu Thủ (K-Means + PCA)
+
+- Lựa chọn các đặc trưng số học và chuẩn hóa dữ liệu.
+- Sử dụng phương pháp Elbow để chọn số cụm tối ưu `k` (xem `elbow_plot.png`).
+- Áp dụng K-Means để phân cụm cầu thủ.
+- Giảm chiều dữ liệu xuống 2D bằng PCA để trực quan hóa.
+- Biểu đồ cụm được lưu trong `clusters_pca_2D.png`.
+
+---
+
+## IV.  Dự Đoán Giá Trị Chuyển Nhượng
+
+- Gán giá trị chuyển nhượng mô phỏng cho các cầu thủ thi đấu >900 phút.
+- Huấn luyện mô hình hồi quy tuyến tính dựa trên các đặc trưng như bàn thắng, kiến tạo, xG, v.v.
+- Đánh giá bằng RMSE.
+- Lưu kết quả vào `player_transfer_values.csv`.
+
+---
+
+## Thư Viện Sử Dụng
+
+- `pandas` – xử lý dữ liệu  
+- `numpy` – toán học số  
+- `matplotlib`, `seaborn` – trực quan hóa dữ liệu  
+- `scikit-learn` – học máy (KMeans, PCA, Hồi quy)  
+- `requests`, `beautifulsoup4` – thu thập dữ liệu web  
+- `fpdf` – tạo báo cáo PDF
+
+---
+
+##  Kết Luận
+
+Dự án này thể hiện quy trình phân tích dữ liệu toàn diện:
+- Thu thập dữ liệu web
+- Làm sạch và xử lý dữ liệu
+- Phân tích và trực quan hóa
+- Phân cụm người chơi
+- Dự đoán giá trị với học máy
+
+Có thể mở rộng bằng dữ liệu thật và các mô hình ML nâng cao để cải thiện độ chính xác.
