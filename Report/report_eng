@@ -1,0 +1,77 @@
+#  Python Programming Assignment: Football Data Analysis
+
+##  Overview
+This project covers football player data collection, analysis, clustering, and transfer value prediction using Python. The data is based on the 2024–2025 English Premier League season.
+
+---
+
+## I.  Data Collection from FBref
+
+- Scraped from https://fbref.com/en/.
+- Included players with more than 90 minutes of play.
+- Extracted key statistics: Nation, Team, Age, Position, Goals, Assists, xG, xAG, Passing, Defending, etc.
+- Missing values marked as "N/a".
+- Saved final dataset as `results.csv`.
+
+---
+
+## II. Statistical Analysis
+
+### ✔ Top 3 Players
+- Identified top 3 highest & lowest players for each numeric stat.
+- Saved to `top_3.txt`.
+
+### ✔ Summary Stats
+- Calculated Median, Mean, and Standard Deviation for each attribute:
+  - Overall
+  - Per team
+- Saved to `results2.csv`.
+
+### ✔ Histogram Plots
+- Plotted distribution histograms of each stat.
+- Saved in `/histograms/` folder.
+
+### ✔ Best Performing Team
+- Identified team with highest average for each stat.
+
+---
+
+## III.  Player Clustering (K-Means + PCA)
+
+- Selected numeric features, scaled data.
+- Used elbow method to choose optimal `k` (see `elbow_plot.png`).
+- Applied K-Means clustering and PCA for 2D visualization.
+- Cluster plot saved as `clusters_pca_2D.png`.
+
+---
+
+## IV.  Transfer Value Estimation
+
+- Assigned mock values to players (>900 minutes played).
+- Trained Linear Regression model using selected features (goals, assists, xG, etc.).
+- Evaluated using RMSE.
+- Saved results to `player_transfer_values.csv`.
+
+---
+
+##  Libraries Used
+
+- `pandas` – data manipulation  
+- `numpy` – numeric processing  
+- `matplotlib`, `seaborn` – visualization  
+- `scikit-learn` – machine learning  
+- `requests`, `beautifulsoup4` – web scraping  
+- `fpdf` – PDF generation
+
+---
+
+##  Outcome
+
+This project showcases full-cycle data analysis:
+- Web scraping
+- Data wrangling
+- Visualization
+- Clustering
+- Predictive modeling
+
+It can be extended to real transfer data and more advanced ML models for improved accuracy.
